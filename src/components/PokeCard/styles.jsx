@@ -1,43 +1,38 @@
 import styled from 'styled-components';
 
+//${({theme, mainType}) => theme.colors[mainType].main}
+
 export const Container = styled.div`
 
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap");
-
     font-family: 'Inter', sans-serif;
-    width: 150px;
-    min-width: 180px;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-    border-radius: 25px;
-    color: #FFFFFF;
-    background-color: ${({mainType}) => mainType === 'grass' ? `#38D4B9` : `blue`};
-
-    p {
-        margin: 0px;
-    }
-    
-    span {
-        font-size: 24px;
-        font-weight: 600;
-        letter-spacing: 2px;
-    }
-
-    .pokemonTypeText {
-        padding: 4px 8px;
-        border-radius: 10px;
-        background-color: #6BDCC8;
-    }
+    text-align: center;
+    border: 2px solid ${({theme, mainType}) => theme.colors[mainType].main};
+    margin: 16px;
+    border-radius: 40px;
+    width: 200px;
+    color: white;
+    background-color: #E5E5E5;
 
     img {
-        width: 125px;
-        height: auto;
+        width: 150px;
     }
 
-    & + & {
-        margin-top: 16px;
+    .pokemonId {
+        margin: 0px;
+        display: inline-block;
+        width: 120px;
+        background-color: ${({theme, mainType}) => theme.colors[mainType].main}; 
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
+    .pokemonName {
+        margin: 0px;
+        background-color: ${({theme, mainType}) => theme.colors[mainType].main};
+        display: inline-block;
+        padding: 0px 30px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
     }
 `;
