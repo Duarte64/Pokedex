@@ -11,6 +11,10 @@ export const Container = styled.div`
         li {
             display: inline;
             margin: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 `;
