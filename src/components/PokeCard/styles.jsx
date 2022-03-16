@@ -3,9 +3,6 @@ import styled from 'styled-components';
 //${({theme, mainType}) => theme.colors[mainType].main}
 
 export const Container = styled.div`
-
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap");
-    font-family: 'Inter', sans-serif;
     text-align: center;
     border: 2px solid ${({theme, mainType}) => theme.colors[mainType].main};
     margin: 16px;
@@ -13,6 +10,7 @@ export const Container = styled.div`
     width: 200px;
     color: white;
     background-color: #E5E5E5;
+    font-weight: 400;
 
     img {
         width: 150px;
@@ -31,8 +29,25 @@ export const Container = styled.div`
         margin: 0px;
         background-color: ${({theme, mainType}) => theme.colors[mainType].main};
         display: inline-block;
-        padding: 0px 30px;
+        padding: 0px 25px;
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
+    }
+
+    @media screen and (max-width:480px) {
+        margin: 6px;
+        width: 175px;
+        font-size: 12px;
+
+        img {
+            width: 120px;
+        } 
+
+        .pokemonName {
+            padding: 0px 15px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+
     }
 `;

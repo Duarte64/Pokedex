@@ -6,4 +6,8 @@ export const PokemonPage = styled.div`
     flex-flow: row wrap;
     justify-content: center;
     margin: auto;
+
+    @media screen and (max-width:480px) {
+        width: 100%;
+    }
 `;
