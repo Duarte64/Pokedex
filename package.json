@@ -36,6 +36,8 @@
     ]
   },
   "devDependencies": {
+    "react-infinite-scroller": "^1.2.5",
+    "react-spring": "^9.4.4",
     "styled-components": "^5.3.3"
   }
 }

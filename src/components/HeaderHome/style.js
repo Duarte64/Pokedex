@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 100%;
+    width: 90%;
     display: flex;
-    justify-content: space-around;
-    margin: 24px;
+    flex-flow: row wrap;
+    justify-content: left;
+    margin: 8px;
 
     input {
         border: none;
         height: 40px;
-        width: 20%;
+        width: 100%;
         border-radius: 20px;
-
-        &:focus, &:focus{
-            border: blue;
-            outline: none;
-        }
+        padding: 0 16px;
+        font-size: 20px;
+        margin-right: 24px;
+        text-align: center;
     }
 `;

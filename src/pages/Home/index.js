@@ -2,8 +2,12 @@ import { ThemeProvider } from 'styled-components';
 
 import pokemonThemes from '../../assets/styles/themes/pokeTypes';
 import PokeArea from '../../components/PokeArea';
-import HeaderHome from '../../components/HeaderHome';
+import HeaderHome from '../../components/HeaderHome'
+import Pagination from '../../components/Pagination'
 import { PokemonPage } from '../../components/PokemonPage';
+
+import FetchPageProvider from '../../providers/FetchPageProvider';
+
 export default function Home() {
 
 
@@ -11,7 +15,10 @@ export default function Home() {
     <ThemeProvider theme={pokemonThemes}>
         <PokemonPage>
             <HeaderHome />
-            <PokeArea />
+            <FetchPageProvider>
+                <PokeArea />
+                <Pagination />
+            </FetchPageProvider>
         </PokemonPage>
     </ThemeProvider>
   );

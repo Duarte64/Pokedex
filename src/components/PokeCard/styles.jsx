@@ -4,13 +4,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     text-align: center;
-    border: 4px solid ${({theme, mainType}) => theme.colors[mainType].main};
+    border: 3px solid ${({theme, mainType}) => theme.colors[mainType].main};
     margin: 16px;
-    border-radius: 40px;
+    border-radius: 20px;
     width: 200px;
+    background-color: #FFFFFF;
     color: white;
-    background-color: #E5E5E5;
-    font-weight: 400;
     letter-spacing: 0.75px;
 
     img {
