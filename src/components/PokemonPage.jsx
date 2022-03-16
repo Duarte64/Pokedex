@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PokemonPage = styled.div`
-    width: 95%;
+    width: 90%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
