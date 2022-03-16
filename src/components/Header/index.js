@@ -6,7 +6,7 @@ import pokedex from "../../assets/icons/pokedex.png"
 export default function Header() {
     return (
         <Container>
-            <img src={pokedex} alt='Pokedex Logo'></img>
+            <a href="/a"><img src={pokedex} alt='Pokedex Logo'></img></a>
             <img src={engrenagem} alt='Configurações'></img>
         </Container>
     )
