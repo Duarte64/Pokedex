@@ -11,6 +11,12 @@ export const Container = styled.div`
     background-color: #FFFFFF;
     color: white;
     letter-spacing: 0.75px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s;
+
+    &:hover {
+        box-shadow: 8px 8px 10px rgba(0,0,0,0.15);
+    }
 
     img {
         width: 150px;

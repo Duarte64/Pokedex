@@ -22,12 +22,12 @@ export default function PokeArea() {
 
     const pokemonInfos = pokemonList.results.map(link => link.url);
     const pokemonsFinalList = await Promise.all(pokemonInfos.map(url =>  fetch(url).then(result => result.json())));
-    setPokemons((prevState) => [...pokemonsFinalList]);
+    setPokemons([...pokemonsFinalList]);
   }
 
     return (
         <>
-            {pokemons.map((pokemon) => (
+            {pokemons.map((pokemon) => pokemon.is_default ? (
 
                 <PokeCard key={pokemon.name} types={pokemon.types} mainType={pokemon.types[0].type.name}>
             
@@ -38,7 +38,7 @@ export default function PokeArea() {
                     <p className='pokemonName'>{<span>{normalizeWords(pokemon.name)}</span>}</p>
             
                 </PokeCard>
-            ))}
+            ) : '')}
         </>
     )
 }

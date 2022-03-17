@@ -5,12 +5,15 @@ export const Container = styled.div`
     margin: 16px auto 32px;
     display: flex;
     justify-content: center;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
+
+    @media screen and (max-width: 420px) {
+        font-size: 16px;
+    }
 
     ul {
         list-style: none;
-        color: black;
         display: flex;
         flex-flow: row wrap;
         display: inline;
@@ -18,14 +21,19 @@ export const Container = styled.div`
         li {
             color: #F57D31;
             display: inline;
-            margin: 5px;
+            margin: 7px;
 
             &:hover {
                 cursor: pointer;
                 text-decoration: underline;
             }
         }
-
+        
+        .dots:hover {
+            cursor: default;
+            text-decoration: none;
+        
+        }
         .listActive {
             background-color: #F57D31;
             color: white;

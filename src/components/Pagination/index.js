@@ -15,8 +15,7 @@ export default function Pagination() {
     }, [])
 
     async function handleFetch() {
-        const total = await fetch('https://pokeapi.co/api/v2/pokemon/').then(response => response.json());
-        let count = total.count;
+        let count = 898;
         let sum = 0;
         let arrayFinal = [];
         while(count > 20) {
@@ -31,7 +30,7 @@ export default function Pagination() {
     return (
         <Container>
             <ul>
-                <li> &lt;&lt; </li>
+                <li className="dots"> &lt;&lt; </li>
                 {
                     actualPage > 4 ? 
                     <>
@@ -40,10 +39,12 @@ export default function Pagination() {
                             setActualPage(0);
                             }
                         }>1</li>
-                        <li>...</li>
+                        <li className="dots">...</li>
                     </>
                 : ''}
-                {pageNumbers.map((value, index) => ((index - actualPage <= 3 && index - actualPage > 0) || (actualPage - index <= 3 && index - actualPage < 0) || (index === actualPage)) ? (
+                {pageNumbers.map(
+                    (value, index) => 
+                    ((index - actualPage <= 3 && index - actualPage > 0) || (actualPage - index <= 3 && index - actualPage < 0) || (index === actualPage)) ? (
                     <li key={index} className={index === actualPage ? 'listActive' : null}onClick={() => {
                         setPages(value);
                         setActualPage(index);
@@ -52,17 +53,17 @@ export default function Pagination() {
                 ) : ``)
                 }
                 {
-                    actualPage < 52 ? 
+                    actualPage < 40 ? 
                     <>
-                        <li>...</li>
+                        <li className="dots">...</li>
                         <li key={pageNumbers.length-1} onClick={() => {
                             setPages({offset: pageNumbers[pageNumbers.length-1].offset, limit: pageNumbers[pageNumbers.length-1].limit});
-                            setActualPage(56);
+                            setActualPage(45);
                             }
                         }>{pageNumbers.length}</li>
                     </>
                 : ''}
-                <li> &gt;&gt; </li>
+                <li className="dots"> &gt;&gt; </li>
             </ul>
         </Container>
     )
