@@ -13,6 +13,7 @@ export const Container = styled.div`
     transition: box-shadow 0.3s;
 
     &:hover {
+        cursor: pointer;
         box-shadow: 8px 8px 10px rgba(0,0,0,0.15);
     }
 
