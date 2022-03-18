@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-//${({theme, mainType}) => theme.colors[mainType].main}
-
 export const Container = styled.div`
     text-align: center;
     border: 3px solid ${({theme, mainType}) => theme.colors[mainType].main};

@@ -58,7 +58,7 @@ export default function Pagination() {
                         <li className="dots">...</li>
                         <li key={pageNumbers.length-1} onClick={() => {
                             setPages({offset: pageNumbers[pageNumbers.length-1].offset, limit: pageNumbers[pageNumbers.length-1].limit});
-                            setActualPage(45);
+                            setActualPage(44);
                             }
                         }>{pageNumbers.length}</li>
                     </>

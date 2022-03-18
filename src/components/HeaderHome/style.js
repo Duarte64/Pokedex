@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 90%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: left;
+    width: 95%;
     margin: 8px;
 
     input {

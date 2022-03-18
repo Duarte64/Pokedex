@@ -7,13 +7,24 @@ export const Container = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 16px;
-
-    h1 {
-        color: black;
-        font-size: 40px;
-    }
-
+    
     img {
-        max-width:100%;
+        cursor: pointer;
+    }
+    
+    a {
+        text-decoration: none;
+        display: flex;
+        cursor: pointer;
+
+        h1 {
+            color: black;
+            font-size: 40px;
+        }
+
+        img {
+            max-width:100%;
+            margin: 0px 15px;
+        }
     }
 `;
