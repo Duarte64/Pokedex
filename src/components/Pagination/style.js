@@ -16,7 +16,6 @@ export const Container = styled.div`
         list-style: none;
         display: flex;
         flex-flow: row wrap;
-        display: inline;
 
         li {
             color: #F57D31;
@@ -29,15 +28,16 @@ export const Container = styled.div`
             }
         }
         
-        .dots:hover {
-            cursor: default;
-            text-decoration: none;
-        
-        }
         .listActive {
             background-color: #F57D31;
             color: white;
             padding: 2px 8px;
+        }
+        
+        .dots:hover {
+            cursor: default;
+            text-decoration: none;
+        
         }
     }
 `;

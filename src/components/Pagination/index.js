@@ -1,27 +1,26 @@
 import { useEffect, useState, useContext } from "react"
-
 import {PagesContext} from '../../providers/FetchPageProvider';
-
 import { Container } from "./style"
 
 export default function Pagination() {
 
-    const {setPages} = useContext(PagesContext);
+    const {pages, setPages} = useContext(PagesContext);
     const [pageNumbers, setPageNumbers] = useState([]);
     const [actualPage, setActualPage] = useState(0);
-
+    
     useEffect(() => {
         handleFetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     async function handleFetch() {
-        let count = 898;
+        let count = 898; //set active pokemons at this moment
         let sum = 0;
         let arrayFinal = [];
-        while(count > 20) {
-            arrayFinal.push({offset: sum, limit:20})
-            count = count-20;
-            sum += 20;
+        while(count > pages.limit) {
+            arrayFinal.push({offset: sum, limit:pages.limit})
+            count = count-pages.limit;
+            sum += pages.limit;
         }
         arrayFinal.push({offset: sum, limit:count})
         setPageNumbers((prevState) => [...prevState, ...arrayFinal]);
@@ -53,12 +52,12 @@ export default function Pagination() {
                 ) : ``)
                 }
                 {
-                    actualPage < 40 ? 
+                    actualPage < pageNumbers.length-5 ? 
                     <>
                         <li className="dots">...</li>
                         <li key={pageNumbers.length-1} onClick={() => {
                             setPages({offset: pageNumbers[pageNumbers.length-1].offset, limit: pageNumbers[pageNumbers.length-1].limit});
-                            setActualPage(44);
+                            setActualPage(pageNumbers.length-1);
                             }
                         }>{pageNumbers.length}</li>
                     </>
