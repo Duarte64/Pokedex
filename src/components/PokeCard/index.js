@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
@@ -8,6 +8,8 @@ import normalizeWords from '../../utils/normalizeWords';
 import normalizeNumbers from '../../utils/normalizeNumbers';
 
 export default function PokeCard({pokemon}) {
+
+    const isLoading = useRef(null);
 
     const calcY = (x, lx) => (x - lx - window.innerWidth / 20) / 100;
       
@@ -39,6 +41,10 @@ export default function PokeCard({pokemon}) {
             { target, eventOptions: { passive: false } 
         }
     );
+    
+    useEffect(() => {
+        console.log(isLoading.current.complete);
+    }, [pokemon])
 
     return (
         <animated.div
@@ -55,7 +61,7 @@ export default function PokeCard({pokemon}) {
                 <Container key={pokemon.name} types={pokemon.types} mainType={pokemon.types[0].type.name}>
                     <p className='pokemonId'>#{normalizeNumbers(pokemon.id)}</p>
             
-                    <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`${pokemon.name} front sprite`}/>
+                    <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`${pokemon.name} front sprite`} ref={isLoading}/>
                     
                     <p className='pokemonName'>{<span>{normalizeWords(pokemon.name)}</span>}</p>
                 </Container>

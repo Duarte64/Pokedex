@@ -14,10 +14,11 @@ export default function Home() {
 
 
   return (
+
     <ThemeProvider theme={pokemonThemes}>
         <PokemonPage>
             <FetchPageProvider>
-                <PokeArea />
+                <PokeArea/>
                 <Pagination />
             </FetchPageProvider>
         </PokemonPage>

@@ -18,7 +18,7 @@ export const Container = styled.div`
         flex-flow: row wrap;
 
         li {
-            color: #F57D31;
+            color: #484848;
             display: inline;
             margin: 7px;
 
@@ -29,7 +29,7 @@ export const Container = styled.div`
         }
         
         .listActive {
-            background-color: #F57D31;
+            background-color: #484848;
             color: white;
             padding: 2px 8px;
         }

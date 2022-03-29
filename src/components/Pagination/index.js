@@ -31,7 +31,7 @@ export default function Pagination() {
             <ul>
                 <li className="dots"> &lt;&lt; </li>
                 {
-                    actualPage > 4 ? 
+                    actualPage > 2 ? 
                     <>
                         <li key={1} onClick={() => {
                             setPages({offset: 0, limit: 20});
@@ -43,7 +43,7 @@ export default function Pagination() {
                 : ''}
                 {pageNumbers.map(
                     (value, index) => 
-                    ((index - actualPage <= 3 && index - actualPage > 0) || (actualPage - index <= 3 && index - actualPage < 0) || (index === actualPage)) ? (
+                    ((index - actualPage <= 1 && index - actualPage > 0) || (actualPage - index <= 1 && index - actualPage < 0) || (index === actualPage)) ? (
                     <li key={index} className={index === actualPage ? 'listActive' : null}onClick={() => {
                         setPages(value);
                         setActualPage(index);
@@ -52,7 +52,7 @@ export default function Pagination() {
                 ) : ``)
                 }
                 {
-                    actualPage < pageNumbers.length-5 ? 
+                    actualPage < pageNumbers.length-3 ? 
                     <>
                         <li className="dots">...</li>
                         <li key={pageNumbers.length-1} onClick={() => {

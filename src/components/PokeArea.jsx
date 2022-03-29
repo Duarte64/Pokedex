@@ -4,22 +4,18 @@ import PokeCard from './PokeCard';
 
 import {PagesContext} from '../providers/FetchPageProvider';
 
+import handleFetch from '../services/handleFetch';
+
 export default function PokeArea() {
   
   const {pages} = useContext(PagesContext);
 
   const [pokemons, setPokemons] = useState([]);
 
-  useEffect(() => {
-    handleFetch();
+  useEffect(async () => {
+    const pokemons = await handleFetch({pages});
+    setPokemons([...pokemons]);
   }, [pages]);
-
-  async function handleFetch() {
-    const pokemonList = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${pages.offset}&limit=${pages.limit}`).then(response => response.json());
-    const pokemonInfos = pokemonList.results.map(link => link.url);
-    const pokemonsFinalList = await Promise.all(pokemonInfos.map(url =>  fetch(url).then(result => result.json())));
-    setPokemons([...pokemonsFinalList]);
-  }
   
     return (
         <>
