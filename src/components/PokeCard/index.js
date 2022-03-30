@@ -7,7 +7,7 @@ import { Container } from "./styles"
 import normalizeWords from '../../utils/normalizeWords';
 import normalizeNumbers from '../../utils/normalizeNumbers';
 
-export default function PokeCard({pokemon, onComplete}) {
+export default function PokeCard({pokemon}) {
 
     const isLoading = useRef(null);
 
@@ -61,7 +61,7 @@ export default function PokeCard({pokemon, onComplete}) {
                 <Container key={pokemon.name} types={pokemon.types} mainType={pokemon.types[0].type.name}>
                     <p className='pokemonId'>#{normalizeNumbers(pokemon.id)}</p>
             
-                    <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`${pokemon.name} front sprite`} ref={isLoading} onError={onComplete} onLoad={onComplete}/>
+                    <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`${pokemon.name} front sprite`} ref={isLoading}/>
                     
                     <p className='pokemonName'>{<span>{normalizeWords(pokemon.name)}</span>}</p>
                 </Container>

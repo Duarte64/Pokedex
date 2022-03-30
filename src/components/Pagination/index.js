@@ -13,7 +13,7 @@ export default function Pagination() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    async function handleFetch() {
+    function handleFetch() {
         let count = 898; //set active pokemons at this moment
         let sum = 0;
         let arrayFinal = [];
