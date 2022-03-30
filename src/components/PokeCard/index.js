@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
@@ -41,10 +41,6 @@ export default function PokeCard({pokemon}) {
             { target, eventOptions: { passive: false } 
         }
     );
-    
-    useEffect(() => {
-        console.log(isLoading.current.complete);
-    }, [pokemon])
 
     return (
         <animated.div

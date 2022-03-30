@@ -33,11 +33,5 @@ export const Container = styled.div`
             color: white;
             padding: 2px 8px;
         }
-        
-        .dots:hover {
-            cursor: default;
-            text-decoration: none;
-        
-        }
     }
 `;
