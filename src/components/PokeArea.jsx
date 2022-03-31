@@ -6,7 +6,7 @@ export default function PokeArea({pokemons}) {
 
     return (
         <>
-            {pokemons.map((pokemon) => (<PokeCard key={pokemon.name} pokemon={pokemon}/>))}
+            {pokemons.map((pokemon) => (pokemon.is_default === true && <PokeCard key={pokemon.name} pokemon={pokemon}/>))}
         </>
     )
 }
