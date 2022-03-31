@@ -10,7 +10,7 @@ import { PokemonPage } from '../../components/PokemonPage';
 import pokemonThemes from '../../assets/styles/themes/pokeTypes';
 
 import handlePokemonListFetch from '../../services/handlePokemonListFetch';
-import handlePokemonFetch from '../../services/handlePokemonListFetch';
+import handlePokemonFetch from '../../services/handlePokemonFetch';
 
 export default function Home() {
 
@@ -27,7 +27,8 @@ export default function Home() {
         setActualPage(1);
     }, []);
 
-    const handleSearch = useCallback(async (event) => {    
+    const handleSearch = useCallback(async (event) => {
+        console.log(event);    
         const pokemon = await handlePokemonFetch(event.target.value);
         setPokemons([pokemon]);
     }, []);

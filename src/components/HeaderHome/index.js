@@ -1,13 +1,17 @@
+import { useState } from 'react';
+
 import {Container} from './style';
 
 import lupa from '../../assets/icons/lupa.svg'
 
 export default function HeaderHome({handleSearch, handleLimit}) {
-    console.log(handleSearch);
+
+    const [inputValue, setInputValue] = useState("");
+
     return (
         <Container>
-            <input type='text' placeholder='Search by Name or #Tag'/>
-            <button> <img src={lupa} alt="Search"/> </button>
+            <input type='text' onChange={(event) => setInputValue(event.target.value)} placeholder='Search by Name or Tag'/>
+            <button value={inputValue} onClick={handleSearch}> <img src={lupa} alt="Search"/> </button>
             <p>
                 Itens per page: 
                 <select onChange={handleLimit} defaultValue={20}>
