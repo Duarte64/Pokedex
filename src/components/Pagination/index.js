@@ -1,13 +1,13 @@
 import { Container } from "./style"
 
-export default function Pagination({pageNumbers = 42, actualPage = 1, handlePage}) {
+export default function Pagination({pageNumbers = 45, actualPage = 1, handlePage}) {
 
     return (
         <Container>
             <ul>
                 {actualPage > 2 && 
                     <>
-                        <li value={1}> 1 </li>
+                        <li value={1} onClick={handlePage}> 1 </li>
                         <li>...</li>
                     </>
                 }
@@ -35,7 +35,7 @@ export default function Pagination({pageNumbers = 42, actualPage = 1, handlePage
                 {actualPage < pageNumbers - 2 && 
                     <>
                         <li>...</li>
-                        <li value={pageNumbers}> {pageNumbers} </li>
+                        <li value={pageNumbers} onClick={handlePage}> {pageNumbers} </li>
                     </>
                 }
             </ul>

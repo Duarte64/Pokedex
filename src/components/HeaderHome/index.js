@@ -9,10 +9,10 @@ export default function HeaderHome() {
             <button> <img src={lupa} alt="Search"/> </button>
             <p>
                 Itens per page: 
-                <select>
+                <select defaultValue={20}>
                     <option>5</option>
                     <option>10</option>
-                    <option selected>20</option>
+                    <option value={20}>20</option>
                     <option>50</option>
                     <option>100</option>
                 </select>

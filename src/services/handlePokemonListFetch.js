@@ -2,7 +2,9 @@ import handleErrors from "./utils/handleErrors";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async function({...params}) {
-    console.log(params);
+    if (params.offset + params.limit > 898) {
+        params.limit = 898 - params.offset;
+    }
     const apiResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${params.offset}&limit=${params.limit}`);
     handleErrors(apiResponse.status);
     const pokemonPageList = await apiResponse.json();

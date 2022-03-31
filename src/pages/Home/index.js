@@ -17,21 +17,23 @@ export default function Home() {
     const [pageBehavior, setPageBehavior] = useState({offset: 0, limit: 20});
     const [actualPage, setActualPage] = useState(1);
 
-    const handlePage = useCallback((event) => {
-        console.log('fui chamado');
-        if (event.target.value > actualPage) {
-            setActualPage((prevState) => prevState + 1);
-            setPageBehavior({offset: pageBehavior.offset + pageBehavior.limit, limit: pageBehavior.limit});
-        } else if (event.target.value < actualPage) {
-            setActualPage((prevState) => prevState - 1);
-            setPageBehavior({offset: pageBehavior.offset - pageBehavior.limit, limit: pageBehavior.limit});
-        }
+    const handlePage = useCallback((event) => {    
+        setActualPage(Number(event.target.value));
     }, []);
 
-    useEffect(async () => {
-        const listPokemons = await handlePokemonListFetch(pageBehavior);
-        setPokemons([...listPokemons]);
+    useEffect(() => {
+        setPageBehavior({offset: ((actualPage-1) * 20), limit: 20})
+    }, [actualPage]);
+
+    useEffect(() => {
+        async function handleThis() {
+            const listPokemons = await handlePokemonListFetch(pageBehavior);
+            setPokemons([...listPokemons]);
+        }
+        handleThis();
       }, [pageBehavior]);
+
+      console.log(actualPage);
 
   return (
 
