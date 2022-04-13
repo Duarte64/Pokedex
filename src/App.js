@@ -1,4 +1,4 @@
-import Home from './pages/Home';
+import Router from './routes';
 import Header from './components/Header';
 import GlobalStyles from './assets/styles/global';
 
@@ -7,7 +7,7 @@ function App() {
     <>
         <GlobalStyles />
         <Header/>
-        <Home/>
+        <Router />
     </>
   );
 }

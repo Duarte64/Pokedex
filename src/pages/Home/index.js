@@ -2,8 +2,10 @@ import { useState, useEffect, useCallback } from 'react';
 
 import { ThemeProvider } from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 import HeaderHome from '../../components/HeaderHome'
-import PokeArea from '../../components/PokeArea';
+import PokeCard from '../../components/PokeCard';
 import Pagination from '../../components/Pagination'
 import { PokemonPage } from '../../components/PokemonPage';
 
@@ -28,7 +30,6 @@ export default function Home() {
     }, []);
 
     const handleSearch = useCallback(async (event) => {
-        console.log(event);    
         const pokemon = await handlePokemonFetch(event.target.value);
         setPokemons([pokemon]);
     }, []);
@@ -46,7 +47,12 @@ export default function Home() {
         <ThemeProvider theme={pokemonThemes}>
             <PokemonPage>
                 <HeaderHome handleSearch={handleSearch} handleLimit={handleLimit}/>
-                <PokeArea pokemons={pokemons}/>
+                {pokemons.map((pokemon) => 
+                    (pokemon.is_default === true && 
+                        <Link to={`/pokemon/${pokemon.id}`}>
+                            <PokeCard key={pokemon.name} pokemon={pokemon}/>
+                        </Link>)
+                )}
                 <Pagination pageNumbers={Math.ceil(898/pageLimit)} actualPage={actualPage} handlePage={handlePage}/>
             </PokemonPage>
         </ThemeProvider>
