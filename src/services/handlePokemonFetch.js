@@ -4,7 +4,6 @@ import handleErrors from "./utils/handleErrors";
 export default async function(pokemonNameOrId) {
     console.log(pokemonNameOrId);
     try {
-        console.log('entrei');
         const apiResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNameOrId}`);
         handleErrors(apiResponse.status);
         const pokemonSearch = await apiResponse.json();
