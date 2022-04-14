@@ -59,9 +59,17 @@ export default function Pokemon() {
                 <h3>Base Stats</h3>
                 <StatusArea mainType={pokemon.types[0].type.name}>
                     {pokemon.stats.map(status =>
-                        <p>
-                            <span>{normalizeStatName(status.stat.name)}</span> {status.base_stat}
-                        </p>
+                        <div>
+                            <p>
+                                <span>{normalizeStatName(status.stat.name)}</span> {status.base_stat}
+                            </p>
+                            <progress 
+                                className="slider" 
+                                max={200} 
+                                value={Number(status.base_stat)}
+                                disabled 
+                            />
+                        </div>
                     )}                   
                 </StatusArea>
             </PokeCompleteInfos>

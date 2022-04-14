@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const PokeInfoArea = styled.div`
     background-color: ${({theme, mainType}) => theme.colors[mainType].main};
     border-radius: 16px;
-    width: 70%;
+    width: 95%;
     min-width: 368px;
+    max-width: 1480px;
     margin: 0px auto;
     margin-bottom: 32px;
     padding: 8px;
@@ -29,7 +30,16 @@ export const PokeBasicInfos = styled.div`
     text-align: left;
 
     img {
-        max-width: 310px;
+        max-width: 350px;
+
+        @media screen and (max-width: 480px) {
+            max-width: 310px;
+        }
+    }
+
+    h2 {
+        font-size: 32px;
+        margin-bottom: 16px;
     }
 `;
 
@@ -55,10 +65,25 @@ export const StyledInfoArea = styled.div`
 
     div{
 
+        height: 80px;
+        display: flex;
+        flex-flow: column;
+        justify-content: end;
+        width: 33%;
+
+        &:nth-child(1) {
+            p {
+                margin-bottom: 6px;
+            }
+        }
+
         &:nth-child(2) {
-            width: 33%;
             border-right: 1px solid #777777;
             border-left: 1px solid #777777;
+
+            p {
+                margin-bottom: 6px;
+            }
         }
 
         &:nth-child(3) {
@@ -66,6 +91,7 @@ export const StyledInfoArea = styled.div`
         }
 
     }
+
     legend {
         font-size: 14px;
         color: #999999;
@@ -74,6 +100,13 @@ export const StyledInfoArea = styled.div`
 
     img {
         height: 30px;
+        margin-right: 8px;
+    }
+
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     @media screen and (max-width: 480px) {
@@ -82,11 +115,43 @@ export const StyledInfoArea = styled.div`
 `;
 
 export const StatusArea = styled.div`
-    
+
+    div {
+        width: 100%;
+        display: flex;
+    }
+
     span {
         font-weight: bold;
         text-transform: uppercase;
         color: ${({theme, mainType}) => theme.colors[mainType]?.main};
+        border-right: 1px solid black;
+        width: 60px;
+        text-align: left;
+    }
+
+    p {
+        width: 120px;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 8px;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 80% !important;
+        height: 10px;
+        margin: auto;
+        border: 2px solid ${({theme, mainType}) => theme.colors[mainType]?.main};;
+        border-radius: 16px;
+
+        &::-webkit-progress-bar {
+            background-color: white;
+        }
+
+        &::-webkit-progress-value {
+            background: ${({theme, mainType}) => theme.colors[mainType]?.main};
+        }
     }
 
 `;

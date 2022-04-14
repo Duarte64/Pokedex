@@ -18,7 +18,7 @@ export const Container = styled.div`
     }
 
     img {
-        width: 150px;
+        width: 170px;
     }
 
     .pokemonId {

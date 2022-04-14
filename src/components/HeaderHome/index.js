@@ -10,7 +10,7 @@ export default function HeaderHome({handleSearch, handleLimit}) {
 
     return (
         <Container>
-            <input type='text' onChange={(event) => setInputValue(event.target.value)} placeholder='Search by Name or Tag'/>
+            <input type='text' onChange={(event) => setInputValue(event.target.value)} placeholder='Search Pokemon!'/>
             <button value={inputValue} onClick={handleSearch}> <img src={lupa} alt="Search"/> </button>
             <p>
                 Itens per page: 
