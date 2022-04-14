@@ -9,7 +9,7 @@ export const Container = styled.header`
     padding: 16px;
     
     img {
-        cursor: pointer;
+        cursor: pointer
     }
     
     a {
@@ -26,5 +26,9 @@ export const Container = styled.header`
             max-width:100%;
             margin: 0px 15px;
         }
+    }
+
+    @media screen and (max-width: 780px) {
+        width: 95%;
     }
 `;
