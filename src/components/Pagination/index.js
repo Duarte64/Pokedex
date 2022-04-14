@@ -8,7 +8,7 @@ export default function Pagination({pageNumbers = 45, actualPage = 1, handlePage
                 {actualPage > 2 && 
                     <>
                         <li value={1} onClick={handlePage}> 1 </li>
-                        <li>...</li>
+                        <li className="noneList">...</li>
                     </>
                 }
 
@@ -34,7 +34,7 @@ export default function Pagination({pageNumbers = 45, actualPage = 1, handlePage
 
                 {actualPage < pageNumbers - 2 && 
                     <>
-                        <li>...</li>
+                        <li className="noneList">...</li>
                         <li value={pageNumbers} onClick={handlePage}> {pageNumbers} </li>
                     </>
                 }

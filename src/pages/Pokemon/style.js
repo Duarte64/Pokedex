@@ -7,7 +7,7 @@ export const PokeInfoArea = styled.div`
     min-width: 368px;
     max-width: 1480px;
     margin: 0px auto;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     padding: 8px;
     display: flex;
     flex-flow: row wrap;
@@ -54,6 +54,10 @@ export const PokeCompleteInfos = styled.div`
     color: black;
     font-weight: 300;
     font-size: 18px;
+
+    @media screen and (max-width: 640px) {
+        width: 99%;
+    }
 `;
 
 export const StyledInfoArea = styled.div`
@@ -100,7 +104,7 @@ export const StyledInfoArea = styled.div`
 
     img {
         height: 30px;
-        margin-right: 8px;
+        margin-right: 12px;
     }
 
     p {

@@ -8,10 +8,6 @@ export const Container = styled.div`
     font-size: 22px;
     font-weight: 500;
 
-    @media screen and (max-width: 420px) {
-        font-size: 16px;
-    }
-
     ul {
         list-style: none;
         display: flex;
@@ -21,6 +17,12 @@ export const Container = styled.div`
             color: #484848;
             display: inline;
             margin: 7px;
+            background-color: #EEEEEE;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            padding: 4px 0px;
+            border-radius: 16px;
 
             &:hover {
                 cursor: pointer;
@@ -31,7 +33,19 @@ export const Container = styled.div`
         .listActive {
             background-color: #484848;
             color: white;
-            padding: 2px 8px;
+        }
+
+        .noneList {
+            background-color: #F7F7F7;
+            width: 30px;
+            height: 10px;
+            margin: 0px;
+            padding: 20px 0px;
+
+            &:hover {
+                text-decoration: none;
+                cursor: default;
+            }
         }
     }
 `;

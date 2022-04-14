@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import handlePokemonFetch from "../../services/handlePokemonFetch";
 
 import balance from '../../assets/icons/balance.svg';
@@ -21,15 +21,20 @@ export default function Pokemon() {
 
     const pokemonParam = useParams();
     const [pokemonInfo, setPokemonInfo] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function getPokemon(pokemonParam) {
-            const pokemon = await handlePokemonFetch(pokemonParam.id);
-            setPokemonInfo([pokemon]);
+            try {
+                const pokemon = await handlePokemonFetch(pokemonParam.id);
+                setPokemonInfo([pokemon]);
+            } catch {
+                navigate('/404');
+            }
         }
 
         getPokemon(pokemonParam);
-    }, [pokemonParam]);
+    }, [pokemonParam, navigate]);
 
     return(
         pokemonInfo.map((pokemon) => 
@@ -40,7 +45,11 @@ export default function Pokemon() {
                 <img src={pokemon.sprites.other['official-artwork'].front_default} alt="Pokemon Official Artwork." />
             </PokeBasicInfos>
             <PokeCompleteInfos>
-                <p>{pokemon.types.map(type => <TypeLabel type={type.type.name}>{type.type.name}</TypeLabel>)}</p>
+                <p>
+                    {pokemon.types.map(type => 
+                        <TypeLabel key={type.type.name} type={type.type.name}>{type.type.name}</TypeLabel>)
+                    }
+                </p>
                 <h3>About</h3>
                 <StyledInfoArea>
                     <div>
@@ -52,14 +61,18 @@ export default function Pokemon() {
                         <legend>Height</legend>
                     </div>
                     <div>
-                        {pokemon.abilities.map(ability => <p>{ability.ability.name}</p>)}
+                        {pokemon.abilities.map(ability => 
+                            <p key={ability.ability.name}>
+                                {ability.ability.name}
+                            </p>
+                        )}
                         <legend>Moves</legend>
                     </div> 
                 </StyledInfoArea>
                 <h3>Base Stats</h3>
                 <StatusArea mainType={pokemon.types[0].type.name}>
                     {pokemon.stats.map(status =>
-                        <div>
+                        <div key={status.stat.name}>
                             <p>
                                 <span>{normalizeStatName(status.stat.name)}</span> {status.base_stat}
                             </p>
