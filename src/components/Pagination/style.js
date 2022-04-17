@@ -17,7 +17,7 @@ export const Container = styled.div`
             color: #484848;
             display: inline;
             margin: 7px;
-            background-color: #EEEEEE;
+            background-color: #DFDFDF;
             width: 40px;
             height: 40px;
             text-align: center;
@@ -28,6 +28,21 @@ export const Container = styled.div`
                 cursor: pointer;
                 text-decoration: underline;
             }
+        }
+
+        .reduced {
+            width: 35px;
+            height: 35px;
+            padding: 2px 0px;
+            border-radius: 8px;
+            margin-top: 10px;
+            letter-spacing: -4px;
+            text-align: center;
+            
+            @media screen and (max-width: 720px) {
+                display: none;
+            }
+
         }
         
         .listActive {

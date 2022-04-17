@@ -12,7 +12,7 @@ export default function Router() {
             <Routes>
                 <Route path='/' element={<Home />}/>
                 <Route path='/pokemon/:id' element={<Pokemon />}/>
-                <Route path='/404' element={<Error />}/>
+                <Route path='*' element={<Error />}/>
             </Routes>
         </BrowserRouter>
     )

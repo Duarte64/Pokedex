@@ -16,8 +16,10 @@ export default function Home() {
     const [pageLimit, setPageBehavior] = useState(20);
     const [actualPage, setActualPage] = useState(1);
 
-    const handlePage = useCallback((event) => {    
-        setActualPage(Number(event.target.value));
+    const handlePage = useCallback((event) => {   
+        window.scroll(0,0); 
+        const value = Number(event.target.value);
+        setActualPage(value);
     }, []);
 
     const handleLimit = useCallback((event) => {    

@@ -6,7 +6,7 @@ export const Container = styled.div`
     margin: 0px auto;
     text-align: center;
     color: black;
-    margin-top: 7vh;
+    margin-top: 10vh;
     margin-bottom: 5vh;
     
     img {
