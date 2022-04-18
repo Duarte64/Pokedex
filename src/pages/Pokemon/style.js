@@ -6,11 +6,15 @@ export const PokeInfoArea = styled.div`
     width: 95%;
     min-width: 368px;
     max-width: 1480px;
-    margin: 0px auto;
-    margin-bottom: 16px;
+    margin: 16px auto;
+    margin-bottom: 24px;
     padding: 8px;
     display: flex;
     flex-flow: row wrap;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-45%);;
 
     h3 {
         margin: 32px 0px 16px 0px;
@@ -66,6 +70,10 @@ export const StyledInfoArea = styled.div`
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: center;
+    
+    @media screen and (max-width: 480px) {
+        font-size: 16px;
+    }
 
     div{
 
@@ -145,7 +153,7 @@ export const StatusArea = styled.div`
     .slider {
         -webkit-appearance: none;
         width: 80% !important;
-        height: 10px;
+        height: 12px;
         margin: auto;
         border: 2px solid ${({theme, mainType}) => theme.colors[mainType]?.main};;
         border-radius: 16px;

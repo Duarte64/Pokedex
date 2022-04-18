@@ -8,7 +8,7 @@ export const Container = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
+    padding: 16px 16px 16px 4px;
     
     img {
         cursor: pointer;

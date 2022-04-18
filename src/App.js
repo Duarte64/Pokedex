@@ -9,7 +9,6 @@ import { useState } from 'react';
 function App() {
 
     const [theme, setTheme] = useState(true);
-    console.log(theme);
     
     return (
         <>

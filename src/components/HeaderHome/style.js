@@ -39,6 +39,7 @@ export const Container = styled.div`
         height: 40px;
         font-size: 20px;
         text-align: center;
+        box-shadow: 5px 3px 6px rgba(0,0,0,0.15);
     }
 
     button {
@@ -48,6 +49,7 @@ export const Container = styled.div`
         height: 40px;
         background-color: white;
         border: none;
+        box-shadow: 5px 3px 6px rgba(0,0,0,0.15);
     }
 
     img {
