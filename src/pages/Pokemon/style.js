@@ -7,14 +7,9 @@ export const PokeInfoArea = styled.div`
     min-width: 368px;
     max-width: 1480px;
     margin: 16px auto;
-    margin-bottom: 24px;
     padding: 8px;
     display: flex;
     flex-flow: row wrap;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-45%);;
 
     h3 {
         margin: 32px 0px 16px 0px;
@@ -71,7 +66,7 @@ export const StyledInfoArea = styled.div`
     justify-content: space-evenly;
     align-items: center;
     
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 768px) {
         font-size: 16px;
     }
 
@@ -177,4 +172,53 @@ border-radius: 16px;
 font-weight: bold;
 text-transform: uppercase;
 margin: 0px 8px;
+`;
+
+export const PokemonAditionalInfos = styled.div`
+    background-color: ${({theme, mainType}) => theme.colors[mainType].main};
+    border-radius: 16px;
+    width: 95%;
+    min-width: 368px;
+    max-width: 1480px;
+    margin: 16px auto;
+    margin-bottom: 16px;
+    padding: 16px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 18px;
+    
+    @media screen and (max-width: 760px) {
+        display: none;
+    }
+
+    div {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+
+        section {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+        }
+
+        img {
+            max-width: 170px;
+            cursor: pointer;
+        }
+
+        .teste {
+            max-width: 50px;
+            margin: 0px 16px;
+            cursor: default;
+        }
+    }
+    
+
+    h2 {
+        margin-bottom: 16px;
+    }
 `;

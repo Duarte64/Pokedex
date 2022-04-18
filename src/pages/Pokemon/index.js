@@ -5,6 +5,7 @@ import handlePokemonFetch from "../../services/handlePokemonFetch";
 
 import balance from '../../assets/icons/balance.svg';
 import scale from '../../assets/icons/scale.svg';
+import rightArrow from '../../assets/images/rightArrow.png'
 
 import normalizeStatName from "../../utils/normalizeStatName";
 
@@ -15,16 +16,19 @@ import {
     PokeCompleteInfos,
     StyledInfoArea,
     StatusArea,
+    PokemonAditionalInfos
 } from './style';
 
 import normalizeData from "../../utils/normalizeData";
 import normalizeWords from "../../utils/normalizeWords";
+import handleEvolutionChainFetch from "../../services/handleEvolutionChainFetch";
 
 export default function Pokemon() {
 
     const pokemonParam = useParams();
     
     const [pokemonInfo, setPokemonInfo] = useState([]);
+    const [pokemonChainEvolution, setPokemonChainEvolution] = useState([]);
 
     const navigate = useNavigate();
 
@@ -33,6 +37,8 @@ export default function Pokemon() {
             try {
                 const pokemon = await handlePokemonFetch(pokemonParam.id);
                 setPokemonInfo([pokemon]);
+                const chainEvoluiton = await handleEvolutionChainFetch(pokemon);
+                setPokemonChainEvolution(chainEvoluiton);
             } catch {
                 navigate('/404');
             }
@@ -43,6 +49,7 @@ export default function Pokemon() {
 
     return(
         pokemonInfo.map((pokemon) => 
+        <>
             <PokeInfoArea mainType={pokemon.types[0].type.name} key={pokemon.name}>
                 <PokeBasicInfos>
                     <p>#{pokemon.id}</p>
@@ -83,7 +90,7 @@ export default function Pokemon() {
                                 </p>
                                 <progress 
                                     className="slider" 
-                                    max={250} 
+                                    max={200} 
                                     value={Number(status.base_stat)}
                                     disabled 
                                 />
@@ -92,6 +99,27 @@ export default function Pokemon() {
                     </StatusArea>
                 </PokeCompleteInfos>
             </PokeInfoArea>
+            <PokemonAditionalInfos mainType={pokemon.types[0].type.name} key={`${pokemon.name}/${pokemon.id}`}>
+                <h2>Evolution Chain</h2>
+                <div>
+                    {pokemonChainEvolution.map((pokemon, index) => 
+                        <>
+                        <section>
+                            <img src={pokemon.sprites.other['official-artwork'].front_default} alt={`Pokemon ${pokemon.name}`}   onClick={() => navigate(`/pokemon/${pokemon.id}`)}/> 
+                            <legend>{normalizeWords(pokemon.name)}</legend>
+                        </section>
+                        <section>
+                            {index !== pokemonChainEvolution.length-1 && 
+                                <>
+                                    <img className='teste' src={rightArrow} alt='Evolves to'/>
+                                </>
+                            } 
+                        </section>
+                        </>
+                    )}
+                </div>
+            </PokemonAditionalInfos>
+        </>
         )   
     )
 }
