@@ -51,7 +51,8 @@ export const Container = styled.div`
         }
 
         .noneList {
-            background-color: #F7F7F7;
+            background-color: ${({theme}) => theme.mainTheme.background};
+            color: ${({theme}) => theme.mainTheme.font};
             width: 30px;
             height: 10px;
             margin: 0px;

@@ -49,9 +49,9 @@ export const PokeCompleteInfos = styled.div`
     min-width: 350px;
     border-radius: 16px;
     padding: 16px;
-    background-color: white;
+    background-color: ${({theme}) => theme.mainTheme.background};
     text-align: center;
-    color: black;
+    color: ${({theme}) => theme.mainTheme.font};
     font-weight: 300;
     font-size: 18px;
 
@@ -98,13 +98,14 @@ export const StyledInfoArea = styled.div`
 
     legend {
         font-size: 14px;
-        color: #999999;
+        color: ${({theme}) => theme.mainTheme.tertiaryFont};
         margin: 2px auto;
     }
 
     img {
         height: 30px;
         margin-right: 12px;
+        filter: ${({theme}) => theme.mainTheme.filter};
     }
 
     p {

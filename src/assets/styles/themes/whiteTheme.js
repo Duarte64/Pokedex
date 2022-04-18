@@ -73,5 +73,13 @@ export default {
             main: '#E69EAC',
             secondary: '#EA1369',
         },
+    },
+    mainTheme: {
+        background: '#F7F7F7',
+        secondaryBackground: '#FFFFFF',
+        font: '#000000',
+        secondaryFont: '#FFFFFF',
+        tertiaryFont: '#777777',
+        filter: 'invert(0%)'
     }
 }

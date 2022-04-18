@@ -11,7 +11,12 @@ export const Container = styled.header`
     padding: 16px;
     
     img {
-        cursor: pointer
+        cursor: pointer;
+        max-width: 56px;
+    }
+
+    .filtered {
+        filter: ${({theme}) => theme.mainTheme.filter};
     }
     
     a {
@@ -20,7 +25,7 @@ export const Container = styled.header`
         cursor: pointer;
 
         h1 {
-            color: black;
+            color: ${({theme}) => theme.mainTheme.font};
             font-size: 40px;
         }
 

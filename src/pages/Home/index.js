@@ -45,7 +45,7 @@ export default function Home() {
             <HeaderHome handleSearch={handleSearch} handleLimit={handleLimit}/>
             {pokemons.map((pokemon) => 
                 (pokemon.is_default === true && 
-                    <Link to={`/pokemon/${pokemon.id}`}>
+                    <Link to={`/pokemon/${pokemon.id}`} key={pokemon.name}>
                         <PokeCard key={pokemon.name} pokemon={pokemon}/>
                     </Link>)
             )}

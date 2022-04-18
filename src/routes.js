@@ -5,10 +5,10 @@ import Pokemon from './pages/Pokemon';
 import Error from './pages/Error';
 import Header from "./components/Header";
 
-export default function Router() {
+export default function Router({setTheme, theme}) {
     return(
         <BrowserRouter>
-            <Header/>
+            <Header setTheme={setTheme} theme={theme}/>
             <Routes>
                 <Route path='/' element={<Home />}/>
                 <Route path='/pokemon/:id' element={<Pokemon />}/>

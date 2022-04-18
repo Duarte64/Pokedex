@@ -6,8 +6,8 @@ export const Container = styled.div`
     margin: 16px;
     border-radius: 20px;
     width: 200px;
-    background-color: #FFFFFF;
-    color: white;
+    background-color: ${({theme}) => theme.mainTheme.secondaryBackground};
+    color: ${({theme}) => theme.mainTheme.secondaryFont};
     letter-spacing: 0.75px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
     transition: box-shadow 0.3s;

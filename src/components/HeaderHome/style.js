@@ -10,7 +10,7 @@ export const Container = styled.div`
 
     p {
         font-size: 22px;
-        color: black;
+        color: ${({theme}) => theme.mainTheme.font};
         margin-left: 32px;
     }
 
@@ -18,7 +18,10 @@ export const Container = styled.div`
         width: 70%;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
         padding: 0px 24px;
+        margin-right: -1px;
 
         &:focus {
             outline: none;

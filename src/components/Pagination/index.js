@@ -8,7 +8,7 @@ export default function Pagination({pageNumbers = 45, actualPage = 1, handlePage
                 <li 
                     className='reduced'
                     value={actualPage-1}
-                    onClick={actualPage > 1 && handlePage}
+                    onClick={actualPage > 1 ? handlePage : undefined}
                 >&lt;&lt;</li>
                 {actualPage > 2 && 
                     <>
@@ -46,7 +46,7 @@ export default function Pagination({pageNumbers = 45, actualPage = 1, handlePage
                 <li 
                     className='reduced'
                     value={actualPage+1}
-                    onClick={actualPage < 45 && handlePage}
+                    onClick={actualPage < 45 ? handlePage : undefined}
                 >&gt;&gt;</li>
             </ul>
         </Container>
