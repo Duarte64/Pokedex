@@ -160,6 +160,10 @@ export const StatusArea = styled.div`
         &::-webkit-progress-value {
             background: ${({theme, mainType}) => theme.colors[mainType]?.main};
         }
+
+        &::-moz-progress-bar { 
+            background: ${({theme, mainType}) => theme.colors[mainType]?.main};;
+        }
     }
 
 `;
