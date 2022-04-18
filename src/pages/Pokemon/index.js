@@ -15,7 +15,9 @@ import {
     StyledInfoArea,
     StatusArea
 } from './style';
-//import { PokeDetails } from './style';
+
+import normalizeData from "../../utils/normalizeData";
+import normalizeWords from "../../utils/normalizeWords";
 
 export default function Pokemon() {
 
@@ -53,17 +55,17 @@ export default function Pokemon() {
                 <h3>About</h3>
                 <StyledInfoArea>
                     <div>
-                        <p><img src={balance} alt="Balance" /> {pokemon.weight} kg</p>
+                        <p><img src={balance} alt="Balance" /> {normalizeData(pokemon.weight)} kg</p>
                         <legend>Weight</legend>
                     </div>
                     <div>
-                        <p><img src={scale} alt="Scale" /> {pokemon.height} m</p>
+                        <p><img src={scale} alt="Scale" /> {normalizeData(pokemon.height)} m</p>
                         <legend>Height</legend>
                     </div>
                     <div>
-                        {pokemon.abilities.map(ability => 
+                        {pokemon.abilities.map((ability,index) => index < 2 &&
                             <p key={ability.ability.name}>
-                                {ability.ability.name}
+                                {normalizeWords(ability.ability.name, true)}
                             </p>
                         )}
                         <legend>Moves</legend>

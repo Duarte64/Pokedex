@@ -49,7 +49,7 @@ export const PokeCompleteInfos = styled.div`
     min-width: 350px;
     border-radius: 16px;
     padding: 16px;
-    background-color: ${({theme}) => theme.mainTheme.background};
+    background-color: ${({theme}) => theme.mainTheme.secondaryBackground};
     text-align: center;
     color: ${({theme}) => theme.mainTheme.font};
     font-weight: 300;

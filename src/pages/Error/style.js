@@ -5,7 +5,7 @@ export const Container = styled.div`
     min-width: 360px;
     margin: 0px auto;
     text-align: center;
-    color: black;
+    color:  ${({theme}) => theme.mainTheme.font};
     margin-top: 10vh;
     margin-bottom: 5vh;
     

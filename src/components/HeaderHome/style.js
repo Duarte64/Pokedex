@@ -51,6 +51,7 @@ export const Container = styled.div`
     }
 
     img {
+        margin: 4px 4px 0px 0px;
         max-width: 20px;
     }
 

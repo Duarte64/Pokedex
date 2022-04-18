@@ -75,8 +75,8 @@ export default {
         },
     },
     mainTheme: {
-        background: '#333333',
-        secondaryBackground: '#555555',
+        background: '#2A2A2A',
+        secondaryBackground: '#393939',
         font: '#FFFFFF',
         secondaryFont: '#FFFFFF',
         tertiaryFont: '#DDDDDD',
